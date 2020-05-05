@@ -60,3 +60,4 @@ $('.counter__item-number').each(function() {
     }
   });  
 });
+
