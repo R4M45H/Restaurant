@@ -22,57 +22,125 @@ $(".header-slider").slick({
   ],
 });
 
-
-$('.reviews-slider').slick({
+$(".reviews-slider").slick({
   dots: true,
   nextArrow: false,
   prevArrow: false,
   infinite: true,
   speed: 1000,
   slidesToShow: 1,
-  adaptiveHeight: false
+  adaptiveHeight: false,
 });
 
-
-var containerEl = document.querySelector('.container-filter');
+var containerEl = document.querySelector(".container-filter");
 var mixer = mixitup(containerEl, {
   load: {
-      filter: 'all'
-  }
+    filter: "all",
+  },
 });
 
 //Counter - счетчик
-$('.counter__item-number').each(function() {
-  var $this = $(this),
-      countTo = $this.attr('data-count');
-  
-  $({ countNum: $this.text()}).animate({
-    countNum: countTo
-  },
-  {
-    duration: 4000,
-    easing:'linear',
-    step: function() {
-      $this.text(Math.floor(this.countNum));
-    },
-    complete: function() {
-      $this.text(this.countNum);
-    }
-  });  
+/* var target = $('.counter__item-number');
+var targetPos = target.offset().top;
+var winHeight = $(window).height();
+var scrollToElem = targetPos - winHeight;
+$(window).scroll(function(){
+  var winScrollTop = $(this).scrollTop();
+  if(winScrollTop > scrollToElem){
+    //сработает когда пользователь доскроллит к элементу с классом .elem
+  }
+}); */
+$(document).ready(function () {
+  var windowHeight = $(window).height();
+
+  $(document).on("scroll", function () {
+    $(".counter__item-number").each(function () {
+      var self = $(this),
+        height = self.offset().top + self.height();
+      if ($(document).scrollTop() + windowHeight >= height) {
+        $(".counter__item-number").each(function () {
+          var $this = $(this),
+            countTo = $this.attr("data-count");
+
+          $({ countNum: $this.text() }).animate(
+            {
+              countNum: countTo,
+            },
+            {
+              duration: 4000,
+              easing: "linear",
+              step: function () {
+                $this.text(Math.floor(this.countNum));
+              },
+              complete: function () {
+                $this.text(this.countNum);
+              },
+            }
+          );
+        });
+      }
+    });
+  });
 });
 
-$(document).ready(function(){
-	$("#menu, #reserv-btn").on("click","a", function (event) {
-		//отменяем стандартную обработку нажатия по ссылке
-		event.preventDefault();
+// Плавный скролл по навигации
+$(document).ready(function () {
+  $("#menu, #reserv-btn").on("click", "a", function (event) {
+    //отменяем стандартную обработку нажатия по ссылке
+    event.preventDefault();
 
-		//забираем идентификатор бока с атрибута href
-		var id  = $(this).attr('href'),
+    //забираем идентификатор бока с атрибута href
+    var id = $(this).attr("href"),
+      //узнаем высоту от начала страницы до блока на который ссылается якорь
+      top = $(id).offset().top;
 
-		//узнаем высоту от начала страницы до блока на который ссылается якорь
-			top = $(id).offset().top;
-		
-		//анимируем переход на расстояние - top за 1500 мс
-		$('body,html').animate({scrollTop: top}, 2000);
-	});
+    //анимируем переход на расстояние - top за 1500 мс
+    $("body,html").animate({ scrollTop: top }, 2000);
+  });
+});
+
+//Load More для фильтра
+/* 
+ $(function () {
+    $(".hide-row3", ".hide-row4").slice(0, 4).show();
+    $("#viewAll").on('click', function (e) {
+        e.preventDefault();
+        $("div:hidden").slice(0, 4).slideDown();
+        if ($("div:hidden").length == 0) {
+            $("#load").fadeOut('slow');
+        }
+       $('html,body').animate({
+            scrollTop: $(this).offset().top
+        }, 1500); 
+    });
+});
+ */
+/* $('a[href=#top]').click(function () {
+    $('body,html').animate({
+        scrollTop: 0
+    }, 600);
+    return false;
+});
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 50) {
+        $('.totop a').fadeIn();
+    } else {
+        $('.totop a').fadeOut();
+    }
+});
+ */
+
+//Возврат в начало сайта
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 700) {
+    $(".scrollup").fadeIn();
+  } else {
+    $(".scrollup").fadeOut();
+  }
+});
+
+$(".scrollup").click(function () {
+  $("html, body").animate({ scrollTop: 0 }, 1500);
+  return false;
 });
