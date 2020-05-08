@@ -95,7 +95,7 @@ $(document).ready(function () {
       top = $(id).offset().top;
 
     //анимируем переход на расстояние - top за 1500 мс
-    $("body,html").animate({ scrollTop: top }, 2000);
+    $("body,html").animate({ scrollTop: top }, 1500);
   });
 });
 
@@ -143,4 +143,14 @@ $(window).scroll(function () {
 $(".scrollup").click(function () {
   $("html, body").animate({ scrollTop: 0 }, 1500);
   return false;
+});
+
+
+//Menu-btn
+
+$(".menu-btn").on("click", function() {
+  $(".nav, .menu-btn").toggleClass("active");
+});
+$(".nav-menu li a").click(function() {
+  $(".nav, .menu-btn").removeClass('active'); 
 });
