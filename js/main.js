@@ -12,14 +12,21 @@ $(".header-slider").slick({
   slidesToScroll: 1,
   responsive: [
     {
-      breakpoint: 1024,
-      settings: {},
+      breakpoint: 768,
+      settings: {
+        
+        dots: true,
+      }
     },
     {
-      breakpoint: 640,
-      settings: {},
+      breakpoint: 421,
+      settings: {
+        dots: false,
+        touchMove: false,
+        verticalSwiping: false,
+      }
     },
-  ],
+  ]
 });
 
 $(".reviews-slider").slick({
