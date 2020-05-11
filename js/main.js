@@ -14,7 +14,6 @@ $(".header-slider").slick({
     {
       breakpoint: 768,
       settings: {
-        
         dots: true,
       }
     },
