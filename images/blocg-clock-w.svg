@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <g id="time_43_" data-name="time (43)" opacity="0.8">
-    <g id="Group_363" data-name="Group 363">
-      <path id="Path_4085" data-name="Path 4085" d="M8,0a8,8,0,1,0,8,8A8.009,8.009,0,0,0,8,0ZM8,14.3A6.3,6.3,0,1,1,14.3,8,6.3,6.3,0,0,1,8,14.3Z" fill="#fff"/>
-      <path id="Path_4086" data-name="Path 4086" d="M49.169,22H45.434v-4.49a.684.684,0,0,0-1.368,0v5.174a.684.684,0,0,0,.684.684h4.419a.684.684,0,0,0,0-1.368Z" transform="translate(-37.438 -13.543)" fill="#fff"/>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><g data-name="time (43)"><g data-name="Group 363" fill="#fff" opacity=".8"><path data-name="Path 4085" d="M8 0a8 8 0 108 8 8.009 8.009 0 00-8-8zm0 14.3A6.3 6.3 0 1114.3 8 6.3 6.3 0 018 14.3z"/><path data-name="Path 4086" d="M11.731 8.457H7.996v-4.49a.684.684 0 00-1.368 0v5.174a.684.684 0 00.684.684h4.419a.684.684 0 000-1.368z"/></g></g></svg>
