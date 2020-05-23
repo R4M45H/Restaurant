@@ -1,0 +1,214 @@
+html {
+  box-sizing: border-box;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+input[type="checkbox"] {
+  outline: none;
+  box-shadow: none;
+}
+
+body {
+  @extend %cerebri-400;
+  font-size: 16px;
+  line-height: 24px;
+  max-width: 1920px;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+a {
+  color: $accent;
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.5s;
+  &:hover:not(.logo) {
+    cursor: pointer;
+    transition: 0.5s;
+    color: $bg-color;
+  }
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+button {
+  outline: none;
+  border: none;
+  padding: 0;
+  text-transform: uppercase;
+}
+button:hover {
+  cursor: pointer;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section-name {
+  text-align: center;
+  margin: 40px 10px 40px;
+  &__suptitle {
+    @extend %cookie-400;
+    //  font-size: 60px;
+    // line-height: 72px;
+    font-size: calc(30px + 30 * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(26px + 46 * ((100vw - 320px) / (1920 - 320)));
+  }
+  &__title {
+    @extend %cerebri-700;
+    // font-size: 46px;
+    // line-height: 58px;
+    font-size: calc(20px + 22 * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(26px + 32 * ((100vw - 320px) / (1920 - 320)));
+  }
+}
+
+.view-btn {
+  @extend %poppins-500;
+  font-size: 18px;
+  line-height: 24px;
+  color: $text-color;
+  background-color: #000;
+  border: 2px solid transparent;
+  text-transform: capitalize;
+  border-radius: 10px;
+  transition: 0.5s;
+
+  padding: 15px 60px;
+  margin-bottom: 50px;
+}
+.view-btn:hover {
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #000;
+  padding: 15px 100px;
+}
+
+.btn-act {
+  @extend %poppins-500;
+  @include responsive-font(16, 8);
+  margin: 0 5px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 3px;
+  border: 2px solid transparent;
+  background: #292929;
+  color: #fff;
+  &:hover {
+    cursor: pointer;
+    color: #292929;
+    background-color: $text-color;
+    border: 2px solid #000;
+  }
+}
+.btn-act.btn-sub {
+  color: #292929;
+  background-color: $text-color;
+  border: 2px solid #fff;
+  &:hover {
+    color: #fff;
+    border: 2px solid #fff;
+    background: #292929;
+  }
+}
+
+.footer__block-title {
+  @extend %cerebri-700;
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 35px;
+}
+//mixItUp Menu filter
+
+.control {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 18px;
+  border: none;
+}
+.mixitup-control-active {
+  background: #393939;
+}
+.mixitup-control-active[data-filter]:after {
+  background: transparent;
+}
+.control[data-filter] + .control[data-sort] {
+  margin-left: 0.75rem;
+}
+.mix,
+.gap {
+  display: inline-block;
+  vertical-align: top;
+}
+.mix {
+  position: relative;
+}
+.mix:before {
+  content: "";
+}
+
+/* Сетка */
+
+/* 2 колонки */
+.mix,
+.gap {
+  width: calc(100% / 2 - (((2 - 1) * 1rem) / 2));
+}
+/* 3 колонки */
+@media screen and (min-width: 541px) {
+  .mix,
+  .gap {
+    width: calc(100% / 2 - (((2 - 1) * 1rem) / 2));
+  }
+}
+/* 4 колонки */
+@media screen and (min-width: 961px) {
+  .mix,
+  .gap {
+    width: calc(100% / 2 - (((2 - 1) * 1rem) / 2));
+  }
+}
+
+//Scroll up
+.scrollup {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+
+  bottom: 50px;
+  right: 100px;
+  display: none;
+  text-indent: -9999px;
+  background: url(../images/arrows-up.svg) no-repeat;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 24%;
+  z-index: 99;
+}
+
+

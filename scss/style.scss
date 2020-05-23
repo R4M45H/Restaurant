@@ -1,0 +1,1403 @@
+@import "vars";
+@import "libs";
+@import "fonts";
+@import "global";
+
+/*===Header===*/
+
+.header {
+  position: relative;
+  &__wrapper {
+    position: absolute;
+    margin-top: 50px;
+    width: 100%;
+    min-height: 50px;
+    z-index: 5;
+
+    //menu-btn
+    .menu-btn {
+      display: none;
+
+      background-color: transparent;
+      border: 0;
+
+      outline: 0;
+
+      height: 30px;
+      width: 30px;
+
+      top: 3px;
+      right: 25px;
+
+      position: fixed;
+
+      span {
+        left: 10px;
+        top: 24px;
+        &::before {
+          top: -8px;
+        }
+        &::after {
+          bottom: -8px;
+        }
+        &::before,
+        &::after {
+          content: "";
+        }
+      }
+      span,
+      span::before,
+      span::after {
+        display: block;
+        background-color: rgb(255, 255, 255);
+        height: 2px;
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+        width: 30px;
+      }
+      &.active {
+        span {
+          background-color: transparent;
+          &::before,
+          &::after {
+            background-color: rgb(255, 255, 255);
+            top: 0;
+          }
+          &::before {
+            transform: rotate(45deg);
+          }
+          &::after {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+}
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  text-transform: uppercase;
+  &__logo,
+  .logo {
+    @extend %cerebri-700;
+    @include responsive-font(42, 12);
+    line-height: 1.32;
+    text-transform: uppercase;
+    color: $accent;
+  }
+  .nav-menu {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    &__list-link {
+      @extend %cerebri-500;
+      @include responsive-font(16, 7);
+      line-height: 1.16;
+    }
+    &__reservation-btn {
+      @extend %poppins-500;
+      @include responsive-font(16, 8);
+      padding: 8% 18%;
+      border-radius: 3px;
+      margin-left: 30px;
+      border: 2px solid transparent;
+    }
+    &__reservation-btn:hover {
+      color: $text-color;
+      background-color: #000;
+      border: 2px solid $text-color;
+    }
+  }
+}
+
+.slick-vertical .slick-slide {
+  border: none;
+}
+.header-slider {
+  position: relative;
+  &__item {
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    min-height: 100vh;
+    color: $accent;
+    position: relative;
+    z-index: 4;
+  }
+  & .bg-1 {
+    background-image: url(../images/bg-slider-1.jpg);
+  }
+  &__info {
+    position: absolute;
+    top: 150px;
+    left: 240px;
+
+    &-suptitle {
+      @extend %cookie-400;
+      @include responsive-font(65, 16);
+      line-height: 1.18;
+      margin: 0 0 10px 9px;
+    }
+    &-title {
+      @extend %cerebri-700;
+      @include responsive-font(90, 22);
+      line-height: 1;
+      text-transform: uppercase;
+      max-width: 700px;
+      margin-bottom: 70px;
+    }
+    &-subtitle {
+      @extend %poppins-700;
+      @include responsive-font(24, 8);
+      margin-left: 70px;
+      position: relative;
+      &::before {
+        content: "";
+        width: 45px;
+        height: 2px;
+        position: absolute;
+        left: -60px;
+        top: 50%;
+        background-color: $accent;
+      }
+    }
+  }
+  .slick-dots {
+    position: absolute;
+    top: 45%;
+    left: 50px;
+    li {
+      margin-bottom: -7px;
+    }
+    button {
+      width: 15px;
+      height: 2px;
+      background-color: $bg-color;
+      transition: 0.5s;
+      color: transparent;
+    }
+    .slick-active {
+      button {
+        background-color: $accent;
+        width: 45px;
+      }
+    }
+  }
+}
+
+/*===Story===*/
+.story {
+  background-image: url(../images/bg-story.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 5;
+  margin-top: -18px;
+}
+.benefits {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: -90px 0 120px;
+  &__item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    width: 100%;
+    max-width: 450px;
+    min-height: 374px;
+
+    margin-left: 30px;
+    padding: 15px 15px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    box-shadow: 0px 5px 40px 1px rgba(0, 0, 0, 0.2);
+    background-color: $text-color;
+    &:first-child {
+      margin-left: 0;
+    }
+    &-icon {
+      margin-bottom: 32px;
+    }
+    &-title {
+      @extend %cerebri-700;
+      @include responsive-font(24, 16);
+      line-height: 1.36;
+      margin-bottom: 26px;
+    }
+    &-info {
+      @extend %cerebri-500;
+      @include responsive-font(16, 10);
+      line-height: 1.24;
+      text-align: center;
+      max-width: 360px;
+    }
+  }
+}
+.barmen {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  min-height: 810px;
+  margin-bottom: 110px;
+  &__img {
+    max-width: 100%;
+    object-fit: none;
+  }
+  &__story {
+    background-color: $text-color;
+    padding: 4% 5% 4% 7%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 450px;
+    margin: auto 0 auto -150px;
+
+    border-radius: 25px;
+    box-shadow: 0px 5px 30px 1px rgba(0, 0, 0, 0.123);
+    .section-name.story-name {
+      margin: 0 auto 0;
+      text-align: left;
+    }
+    &-subtitle {
+      @extend %cerebri-500;
+      @include responsive-font(14, 10);
+      margin-bottom: 50px;
+    }
+    &-info {
+      @include responsive-font(16, 8);
+      line-height: 1.18;
+      max-width: 615px;
+      margin: 20px 0;
+    }
+    &-supname {
+      @extend %cerebri-700;
+      @include responsive-font(14, 8);
+      line-height: 1.26;
+      margin: 30px auto 10px;
+    }
+    &-name {
+      @extend %cookie-400;
+      @include responsive-font(60, 24);
+      line-height: 1.2;
+      margin-top: -5px;
+    }
+  }
+}
+
+/*===Discover food===*/
+
+.discoverfood > .container {
+  display: block;
+  text-align: center;
+}
+.dishes {
+  margin-top: 100px;
+}
+.controls-panel {
+  display: flex;
+  justify-content: space-evenly;
+
+  max-width: 825px;
+  min-height: 160px;
+  border-radius: 25px;
+  background-color: #fff;
+  box-shadow: 0px 5px 30px 1px rgba(0, 0, 0, 0.1);
+  margin: 70px auto 100px;
+
+  &__btn {
+    @extend %cerebri-600;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 165px;
+
+    background-color: #fff;
+    width: 100%;
+    transition: 0.5s;
+    svg {
+      margin-bottom: 15px;
+      transform: scale(1);
+      transition: 0.5s;
+    }
+    svg:hover {
+      transform: scale(1.2);
+      transition: 0.5s;
+    }
+  }
+  button:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  button:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  button:focus {
+    background-color: #000;
+    color: #fff;
+
+    transition: 0.5s;
+    transition-timing-function: ease-in;
+    .white {
+      fill: #fff;
+    }
+  }
+}
+
+/*===Foods===*/
+.foods {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  padding: 0 20px;
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 300px;
+    min-height: 400px;
+    padding: 20px 10px 15px 10px;
+    margin-bottom: 50px;
+    border-radius: 25px;
+
+    box-shadow: 0px 5px 40px 1px rgba(0, 0, 0, 0.1);
+
+    position: relative;
+    transition: 0.5s;
+    transform: scale(1);
+    &:hover {
+      cursor: pointer;
+      transition: 0.5s;
+      transform: scale(1.15);
+      box-shadow: 0px 5px 40px 1px rgba(0, 0, 0, 0.4);
+    }
+    &-price {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #000;
+      color: $text-color;
+      top: -10px;
+      right: 0;
+      position: absolute;
+      span {
+        @extend %poppins-400;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        left: 0;
+        position: absolute;
+      }
+    }
+
+    &-img {
+      margin-bottom: 27px;
+    }
+    &-name {
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 20px;
+    }
+    &-info {
+      margin-bottom: 30px;
+    }
+    &-btn {
+      @extend %poppins-500;
+      padding: 12px 40px;
+      border: 2px solid #000;
+      background-color: #fff;
+      transition: 0.5s;
+      border-radius: 10px;
+    }
+    &-btn:hover {
+      color: $text-color;
+      background-color: #000;
+      padding: 12px 65px;
+    }
+  }
+}
+
+/*===Restaurant Menu===*/
+
+.restmenu {
+  background-image: url(../images/bg-restmenu.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 80% 100%;
+  margin-bottom: 80px;
+  z-index: 15;
+  position: relative;
+  &::before {
+    content: url(../images/bg-btwsection.svg);
+    bottom: -25px;
+    right: 0;
+    position: absolute;
+    z-index: 10;
+  }
+  &__inner {
+    padding-top: 160px;
+    display: flex;
+
+    flex-direction: column;
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 140px;
+    &-img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+    &-dinner {
+      flex-direction: row-reverse;
+      .restmenu__item-set--dinner {
+        margin-left: 0;
+        margin-right: -100px;
+        padding: 46px 100px 46px 50px;
+      }
+    }
+
+    &-set {
+      width: 100%;
+      max-width: 750px;
+      min-height: 100%;
+      margin-left: -100px;
+      padding: 46px 50px 46px 100px;
+      background-color: #fff;
+      text-align: center;
+
+      box-shadow: 0px 5px 40px 1px rgba(0, 0, 0, 0.2);
+      border-radius: 25px;
+      .section-name.menu-name {
+        margin: 0 auto 50px;
+      }
+      .setmenu {
+        &__box {
+          margin-bottom: 37px;
+        }
+        &__dishes {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          min-height: 100%;
+          width: 100%;
+          max-width: 750px;
+          &-title {
+            @include responsive-font(20, 12);
+            padding-right: 20px;
+            flex-shrink: 0;
+          }
+          &-line {
+            width: 100%;
+            height: 2px;
+            background-color: rgb(223, 223, 223);
+          }
+          &-price {
+            @include responsive-font(20, 12);
+            padding-left: 20px;
+          }
+          &-info {
+            @extend %cerebri-i;
+            @include responsive-font(16, 10);
+            margin-top: 5px;
+            text-align: left;
+            max-width: 800px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*===Reviews===*/
+.reviews-slider {
+  overflow: hidden;
+  margin: -100px 0 80px;
+  &__inner-img {
+    position: absolute;
+  }
+  &__text {
+    width: 100%;
+    max-width: 943px;
+    min-width: 50%;
+    min-height: 100%;
+    color: #fff;
+
+    display: flex;
+    flex-basis: 50%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #292929;
+    &-quote {
+      width: 10%;
+      height: 8%;
+      margin-bottom: 2%;
+    }
+    &-review {
+      @extend %cerebri-700;
+      @include responsive-font(24, 9);
+      line-height: 1.36;
+      max-width: 690px;
+      height: 15%;
+      margin: 4% 5% 2% 5%;
+    }
+    &-author {
+      @include responsive-font(20, 7);
+      line-height: 1.32;
+      margin: 5% auto 5%;
+    }
+  }
+  &__img {
+    &-review {
+      flex-basis: 50%;
+      max-width: 100%;
+    }
+  }
+  .slick-dots {
+    display: flex;
+    justify-content: space-between;
+
+    width: 60px;
+    left: calc(50% - 26.5%);
+    bottom: 16%;
+
+    position: absolute;
+    button {
+      display: block;
+      width: 120%;
+      height: 60%;
+      border-radius: 50%;
+      background-color: $bg-color;
+      transition: 0.5s;
+      color: transparent;
+      position: relative;
+    }
+    .slick-active {
+      button {
+        background-color: $accent;
+      }
+    }
+  }
+}
+
+/*===Recipes===*/
+.recipes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: -55px;
+  background-color: $accent;
+  position: relative;
+  &::before {
+    content: url(../images/btwsection.png);
+    height: 30px;
+    top: -40px;
+    right: 0;
+    position: absolute;
+    z-index: 10;
+  }
+  .food-recipes {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
+    margin: 70px auto;
+    &__column {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &-img {
+        max-width: 100%;
+        transition: 2s;
+        transform: scale(1);
+      }
+    }
+    &__img-wrapper {
+      display: flex;
+      align-items: center;
+
+      max-width: 285px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      &:hover {
+        .food-recipes__column-img {
+          transition: 2s;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}
+
+/*===Cooks===*/
+.cooks {
+  position: relative;
+  margin-top: 100px;
+  &::before {
+    content: url(../images/btwsection.png);
+    width: 100%;
+    height: 20px;
+    top: -70px;
+    right: 0;
+    transform: rotate(0.5turn);
+    position: absolute;
+    z-index: 10;
+  }
+  &__inner {
+    margin: 100px auto 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1440px;
+    height: 100%;
+    padding: 0 15px;
+  }
+
+  &__item {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    margin-right: 30px;
+    background: $accent linear-gradient(to bottom, #fff calc(15%), $accent calc(10%), $accent);
+    border-radius: 25px;
+
+    transition: 0.5s;
+    transform: scale(1);
+
+    overflow: hidden;
+    position: relative;
+    &:hover {
+      transition: 0.5s;
+      transform: scale(1.05);
+      box-shadow: 0px 5px 30px 1px rgba(0, 0, 0, 0.2);
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &-img {
+      max-width: 100%;
+    }
+  }
+
+  &__item:hover {
+    .cooks__about-social {
+      transition: 0.5s;
+      transform: translateY(0%);
+    }
+  }
+
+  &__about {
+    width: 100%;
+    max-width: 240px;
+    min-height: 132px;
+
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-name {
+      @extend %cerebri-700;
+      @include responsive-font(26, 16);
+      line-height: 1.2;
+      margin: 5px;
+    }
+    &-info {
+      @include responsive-font(16, 14);
+      line-height: 1.2;
+    }
+    &-info--hide {
+      @include responsive-font(16, 14);
+      line-height: 1.5;
+      margin-top: -15px;
+    }
+    &-wrapper {
+      max-width: 220px;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      margin: 0 auto;
+    }
+    &-social {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      text-align: center;
+
+      width: 100%;
+      max-width: 400px;
+      min-height: 190px;
+
+      bottom: 0;
+      left: 0;
+      position: absolute;
+
+      background-color: #292929;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+
+      color: $accent;
+      transition: 0.5s;
+      transform: translateY(100%);
+    }
+    &-dash {
+      flex-shrink: 0;
+      max-width: 100%;
+      height: 1px;
+      background-color: $bg-color;
+    }
+  }
+
+  &__social {
+    &-icon {
+      display: flex;
+      justify-content: center;
+    }
+    &-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: $text-color;
+      margin-right: 10%;
+      border: 2px solid transparent;
+      transition: 0.5s;
+      &:hover,
+      &:active {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: #292929;
+        border: 2px solid $text-color;
+        transition: 0.5s;
+        svg {
+          fill: #fff;
+        }
+      }
+      svg {
+        fill: #000;
+        width: 20px;
+        height: 25px;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+/*===Counter===*/
+.counter {
+  background-color: #292929;
+  margin-bottom: 100px;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    background-image: url(../images/btwsection-bk.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    z-index: 2;
+  }
+  &::before {
+    top: -40px;
+  }
+  &::after {
+    transform: rotate(0.5turn);
+    bottom: -40px;
+  }
+  &__inner {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 200px;
+    min-height: 175px;
+
+    margin: 90px 0 70px 0px;
+
+    color: $accent;
+    &-svg {
+      margin-bottom: 15px;
+    }
+    &-number {
+      @extend %poppins-400;
+      @include responsive-font(36, 24);
+      line-height: 1.25;
+      position: relative;
+      /*   &::after {
+        content: " + ";
+        @extend %cerebri-700;
+        font-size: 36px;
+        line-height: 48px;
+        top: calc(50% - 24px);
+        right: -25px; 
+        position: absolute;
+      }  */
+    }
+    &-title {
+      @extend %cookie-400;
+      @include responsive-font(40, 26);
+      line-height: 1.25;
+    }
+  }
+}
+
+/*===Reserv===*/
+.reserv {
+  margin-bottom: 150px;
+  &__img {
+    max-width: 72%;
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 15px;
+    margin: 100px auto 0;
+  }
+
+  form {
+    margin: 0 0 0 -300px;
+    padding: 40px 45px;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 25px;
+    background-color: $accent;
+    box-shadow: 0px 5px 30px 1px rgba(0, 0, 0, 0.2);
+  }
+  main {
+    min-height: 400px;
+  }
+  fieldset {
+    width: 650px;
+    border: 0;
+    padding: 30px 0;
+    border-radius: 5px;
+  }
+  fieldset legend {
+    @extend %cookie-400;
+    @include responsive-font(40, 26);
+    background-image: 52px;
+    color: #34495e;
+  }
+  label {
+    @include responsive-font(18, 14);
+    display: block;
+    margin-bottom: 10px;
+  }
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  select,
+  textarea {
+    @include responsive-font(16, 12);
+    margin-bottom: 20px;
+    padding: 2px 5px;
+    width: 290px;
+    height: 45px;
+    border: 0;
+    border-radius: 3px;
+    vertical-align: middle;
+  }
+  select,
+  textarea {
+    width: 95%;
+  }
+  textarea {
+    height: 170px;
+  }
+  input[type="radio"],
+  input[type="checkbox"] {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px 5px 0;
+  }
+  input[type="radio"] + label,
+  input[type="checkbox"] + label {
+    display: inline-block;
+    @include responsive-font(12, 8);
+    vertical-align: middle;
+  }
+  /* input[type="submit"], */
+
+  .half-width {
+    width: 50%;
+    display: inline-block;
+    margin-right: -4px;
+  }
+  .half-width input[type="text"],
+  .half-width input[type="number"],
+  .half-width input[type="datetime"],
+  .half-width select {
+    width: 90%;
+  }
+}
+
+/*===Blog===*/
+.blog {
+  background-color: $accent;
+  position: relative;
+  padding-bottom: 70px;
+  &::before {
+    content: url(../images/btwsection.png);
+    height: 20px;
+    top: -70px;
+    right: 0;
+    position: absolute;
+    z-index: 10;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 15px;
+    margin: 50px auto 150px;
+  }
+  &__info {
+    padding: 15px 20px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 330px;
+    height: 100%;
+    padding-bottom: 15px;
+    margin-bottom: 55px;
+
+    border-radius: 25px;
+
+    transition: 0.5s;
+    // transform: scale(1);
+
+    overflow: hidden;
+    position: relative;
+    &-img {
+      transition: 3s;
+      transform: scale(1);
+    }
+    &-imgwrapper {
+      width: 330px;
+      height: 280px;
+      overflow: hidden;
+    }
+
+    &:hover {
+      transition: 0.5s;
+      // transform: scale(1.05);
+      box-shadow: 0px 5px 30px 1px rgba(0, 0, 0, 0.2);
+      img {
+        transition: 3s;
+        transform: scale(1.25);
+      }
+    }
+    &-date {
+      @extend %cerebri-500;
+      @include responsive-font(16, 12);
+      line-height: 1.2;
+      margin-left: 20px;
+      position: relative;
+      &::before {
+        content: url(../images/blocg-clock.svg);
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+      }
+    }
+    &-title {
+      @extend %cerebri-700;
+      @include responsive-font(20, 14);
+      line-height: 1.4;
+      margin: 15px 0;
+    }
+    &-text {
+      @include responsive-font(16, 10);
+      line-height: 1.4;
+      margin-bottom: 15px;
+    }
+    .item-readmore {
+      display: flex;
+      align-items: center;
+      &:hover {
+        .item-readmore {
+          cursor: pointer;
+          &__dash {
+            border-bottom: 2px dashed red;
+            transition: 0.25s;
+            transition-timing-function: linear;
+          }
+          &__link {
+            transition-delay: 0.5s;
+            background-position: 0 100%;
+          }
+        }
+      }
+      &__dash {
+        width: 50%;
+        margin: 0 20px;
+        border-bottom: 2px dashed #292929;
+        flex-shrink: 0;
+        transition: 0.5s;
+        transition-delay: 0.75s;
+        transition-timing-function: ease-in-out;
+      }
+      &__link {
+        @extend %poppins-700;
+        @include responsive-font(18, 12);
+        line-height: 1.5;
+
+        overflow: hidden;
+        background: linear-gradient(to right, rgb(247, 25, 25) 50%, rgb(247, 25, 25) 50%, black 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 100%;
+        background-position: 100%;
+        transition: background-position 0.5s ease;
+
+        text-decoration: none; // text decorations are clipped in WebKit browsers
+      }
+    }
+  }
+}
+
+/*===Subscribe===*/
+.subscribe {
+  position: relative;
+  width: 100%;
+  max-width: 1410px;
+  min-height: 340px;
+  padding: 70px 135px;
+  margin: -160px auto 50px;
+  box-shadow: 0px 20px 30px 0.5px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  &::before {
+    content: "";
+    background-image: url(../images/btwsection-bk.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 60px;
+    top: -10px;
+    right: 0;
+    position: absolute;
+    z-index: 4;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+
+  background-color: #292929;
+
+  &__text {
+    width: 100%;
+    max-width: 480px;
+    min-height: 145px;
+    color: $accent;
+    &-title {
+      @extend %cerebri-700;
+      font-size: 46px;
+      line-height: 58px;
+    }
+  }
+  &__search-inner {
+    width: 100%;
+    max-width: 550px;
+    min-height: 145px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    input[type="email"] {
+      padding: 2px 5px;
+      width: 380px;
+      height: 52px;
+      border: 0;
+      border-radius: 3px;
+      vertical-align: middle;
+    }
+  }
+}
+
+/*===Footer===*/
+
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: -190px;
+  min-height: 500px;
+
+  color: $accent;
+  background-color: #292929;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    background-image: url(../images/btwsection-bk.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 70px;
+    top: -50px;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+  }
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1420px;
+    padding: 0 10px 80px 10px;
+    margin: 215px auto 20px;
+    border-bottom: 2px solid #aeaeaeb9;
+  }
+  &__social {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 350px;
+    min-height: 250px;
+    &-title {
+      font-size: 40px;
+    }
+    &-icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      width: 100%;
+      max-width: 190px;
+      min-height: 40px;
+
+      margin-top: 30px;
+      .social-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+
+        &__fk {
+          background-color: #3b5999;
+          &:hover {
+            background-color: #55acee;
+          }
+          svg {
+            width: 12px;
+            height: 24px;
+          }
+        }
+        &__tw {
+          background-color: #55acee;
+          &:hover {
+            background-color: #8b878d;
+          }
+          svg {
+            width: 20px;
+            height: 19px;
+          }
+        }
+        &__inst {
+          background-color: #e4405f;
+          &:hover {
+            background-color: #8d2828;
+          }
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        &__in {
+          background-color: #0077b5;
+          &:hover {
+            background-color: #6fd2eb;
+          }
+          svg {
+            width: 20px;
+            height: 18px;
+          }
+        }
+      }
+    }
+  }
+  &__openhours {
+    width: 100%;
+    max-width: 260px;
+    min-height: 185px;
+    .openhours {
+      &__list {
+        margin-left: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        &-day {
+          flex-shrink: 0;
+          position: relative;
+          &::before {
+            content: url(../images/blocg-clock-w.svg);
+            left: -30px;
+            top: 0;
+
+            position: absolute;
+          }
+        }
+        &-dash {
+          width: 100%;
+          height: 2px;
+          margin: 0 15px;
+          background-color: #fff;
+          flex-shrink: 1;
+        }
+        &-time {
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+  &__contact {
+    &-phone,
+    &-address,
+    &-mail {
+      margin: 0 0 15px 30px;
+    }
+    &-phone {
+      position: relative;
+
+      &::before {
+        content: url(../images/contact-phone.svg);
+        left: -30px;
+        top: 5px;
+
+        position: absolute;
+      }
+    }
+    &-address {
+      position: relative;
+
+      &::before {
+        content: url(../images/contact-mark.svg);
+        left: -30px;
+        top: 5px;
+
+        position: absolute;
+      }
+    }
+    &-mail {
+      position: relative;
+      &::before {
+        content: url(../images/contact-mail.svg);
+        left: -30px;
+        top: 0;
+        position: absolute;
+      }
+    }
+  }
+
+  &__instagram {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 340px;
+    &-title {
+      margin-left: 10px;
+    }
+    .instagram__inner {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      &-img {
+        width: 103px;
+        height: 103px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        img {
+          transform: scale(1);
+          transition: 1s;
+        }
+        &:hover {
+          img {
+            transform: scale(1.2);
+            transition: 1s;
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    margin-bottom: 20px;
+  }
+}
+
+@import "media";

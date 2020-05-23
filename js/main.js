@@ -15,7 +15,7 @@ $(".header-slider").slick({
       breakpoint: 768,
       settings: {
         dots: true,
-      }
+      },
     },
     {
       breakpoint: 421,
@@ -23,9 +23,9 @@ $(".header-slider").slick({
         dots: false,
         touchMove: false,
         verticalSwiping: false,
-      }
+      },
     },
-  ]
+  ],
 });
 
 $(".reviews-slider").slick({
@@ -46,48 +46,6 @@ var mixer = mixitup(containerEl, {
 });
 
 //Counter - счетчик
-/* var target = $('.counter__item-number');
-var targetPos = target.offset().top;
-var winHeight = $(window).height();
-var scrollToElem = targetPos - winHeight;
-$(window).scroll(function(){
-  var winScrollTop = $(this).scrollTop();
-  if(winScrollTop > scrollToElem){
-    //сработает когда пользователь доскроллит к элементу с классом .elem
-  }
-}); */
-$(document).ready(function () {
-  var windowHeight = $(window).height();
-
-  $(document).on("scroll", function () {
-    $(".counter__item-number").each(function () {
-      var self = $(this),
-        height = self.offset().top + self.height();
-      if ($(document).scrollTop() + windowHeight >= height) {
-        $(".counter__item-number").each(function () {
-          var $this = $(this),
-            countTo = $this.attr("data-count");
-
-          $({ countNum: $this.text() }).animate(
-            {
-              countNum: countTo,
-            },
-            {
-              duration: 4000,
-              easing: "linear",
-              step: function () {
-                $this.text(Math.floor(this.countNum));
-              },
-              complete: function () {
-                $this.text(this.countNum);
-              },
-            }
-          );
-        });
-      }
-    });
-  });
-});
 
 // Плавный скролл по навигации
 $(document).ready(function () {
@@ -105,7 +63,6 @@ $(document).ready(function () {
   });
 });
 
-
 //Возврат в начало сайта
 $(window).scroll(function () {
   if ($(this).scrollTop() > 700) {
@@ -120,15 +77,38 @@ $(".scrollup").click(function () {
   return false;
 });
 
-
 //Menu-btn
 
-$(".menu-btn").on("click", function() {
-  $(".nav, .menu-btn").toggleClass("active");
+$(".menu-btn").click(function () {
+  $("#menu").animate({
+    height: "toggle",
+  });
+  $("#menu").css({
+    display: "flex",
+  });
 });
-$(".nav-menu li a").click(function() {
-  $(".nav, .menu-btn").removeClass('active'); 
+
+$(".nav-menu li a, .nav-menu__reservation-btn").click(function () {
+  $("#menu").animate({
+    height: "toggle",
+  });
+  $(".menu-btn").removeClass("active");
 });
 
+//закрытие меню при нажатии на область вне меню
+if ($(document).width() < 600)
+  $(document).mouseup(function (e) {
+    if (!$(e.target).closest(".header__wrapper").length) {
+      $(".nav").slideUp();
+      $(".menu-btn").removeClass("active");
+    }
+    e.stopPropagation();
+  });
 
-
+$(".menu-btn").on("click", function () {
+  if ($(this).hasClass("active")) {
+    $(".menu-btn").removeClass("active");
+  } else {
+    $(".menu-btn").addClass("active");
+  }
+});

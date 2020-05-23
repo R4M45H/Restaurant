@@ -1,0 +1,63 @@
+$text-color: #FFFFFF;
+$bg-color: #707070;
+$accent: #F5F5F5;
+
+
+$maxWidth: 1920;
+@mixin responsive-font($pcSize, $mobSize) {
+ $addSize: $pcSize - $mobSize;
+ $maxWidth: $maxWidth - 320;
+ font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+
+%cerebri-400{
+  font-family: 'CerebriSans-Regular';
+  font-weight: 400;
+}
+
+%cerebri-500{
+  font-family: 'cerebrisans-medium';
+  font-weight: 500;
+}
+
+%cerebri-600{
+  font-family: 'CerebriSans-SemiBold';
+  font-weight: 600;
+}
+
+%cerebri-700{
+  font-family: 'CerebriSans-Bold';
+  font-weight: 700;
+}
+
+%cerebri-800{
+  font-family: 'CerebriSans-ExtraBold';
+  font-weight: 800;
+}
+
+%cerebri-i{
+  font-family: 'CerebriSans-Italic';
+  font-weight:  400;
+}
+
+%cookie-400{
+  font-family: 'Cookie-regular';
+  font-weight: 400;
+}
+
+%poppins-400{
+  font-family: 'Poppinsregular';
+  font-weight: 400;
+}
+
+%poppins-500{
+  font-family: 'Poppinspoppins-semiboldmedium';
+  font-weight: 500;
+}
+
+%poppins-700{
+  font-family: 'Poppinsbold';
+  font-weight: 700;
+}
+
