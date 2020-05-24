@@ -72,13 +72,12 @@ $(window).scroll(function () {
   }
 });
 
-$(".scrollup").click(function () {
+$(".scrollup, .logo").click(function () {
   $("html, body").animate({ scrollTop: 0 }, 1500);
   return false;
 });
 
 //Menu-btn
-
 $(".menu-btn").click(function () {
   $("#menu").animate({
     height: "toggle",
@@ -88,6 +87,7 @@ $(".menu-btn").click(function () {
   });
 });
 
+if ($(document).width() < 450)
 $(".nav-menu li a, .nav-menu__reservation-btn").click(function () {
   $("#menu").animate({
     height: "toggle",
@@ -96,7 +96,7 @@ $(".nav-menu li a, .nav-menu__reservation-btn").click(function () {
 });
 
 //закрытие меню при нажатии на область вне меню
-if ($(document).width() < 600)
+if ($(document).width() < 450)
   $(document).mouseup(function (e) {
     if (!$(e.target).closest(".header__wrapper").length) {
       $(".nav").slideUp();
@@ -112,3 +112,26 @@ $(".menu-btn").on("click", function () {
     $(".menu-btn").addClass("active");
   }
 });
+
+//blogButton__readMore
+
+/* $('.blog__item-link').click(function(){
+  $('.blog__item-text').slideToggle(500, function(){
+    if ($(this).is(':hidden')) {
+      $('.blog__item-link').html('READ MORE');
+    } else {
+      $('.blog__item-link').html('HIDE TEXT');
+    }							
+  });
+  return false;
+}); */
+
+$(document).on('click', '.blog__info-link', function() {
+  $(this).closest('.blog__info').find('.blog__item-text').slideToggle('slow', function() {
+    $(this).toggleClass('open');						
+  });
+});
+
+
+
+
