@@ -133,5 +133,3 @@ $(document).on('click', '.blog__info-link', function() {
 });
 
 
-
-

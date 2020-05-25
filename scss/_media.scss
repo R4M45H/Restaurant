@@ -50,6 +50,48 @@
       max-width: 350px;
     }
   }
+
+  /*===Subscribe===*/
+  .subscribe {
+    max-width: 1410px;
+    &__inner {
+      max-width: 1240px;
+    }
+    &__text {
+      max-width: 380px;
+    }
+  }
+  /*===Footer===*/
+
+  .footer {
+    .openhours {
+      &__secondaryList {
+        margin: 0 0 5px 30px;
+      }
+    }
+    &__contact {
+      &-phone,
+      &-address,
+      &-mail {
+        margin: 0 0 10px 30px;
+      }
+    }
+    &__instagram {
+      .instagram__inner {
+        &-img {
+          max-width: 83px;
+          max-height: 83px;
+          margin-left: 10px;
+          margin-bottom: 10px;
+          overflow: hidden;
+          img {
+            max-width: 83px;
+            max-height: 83px;
+          }
+        }
+      }
+    }
+  }
 }
 @media (max-width: 1440px) {
   /*===Header===*/
@@ -220,8 +262,12 @@
     }
     &__info {
       margin-top: 25px;
-      max-width: 700px;
+      width: 100%;
+      max-width: 800px;
       position: relative;
+      &-link {
+        margin: auto 30px 30px 0;
+      }
     }
     &__item {
       flex-direction: row;
@@ -237,11 +283,64 @@
         width: 350px;
         height: 300px;
       }
-      .item-readmore {
-        width: 300px;
-        bottom: 25px;
-        right: 25px;
-        position: absolute;
+    }
+  }
+
+  /*===Subscribe===*/
+  .subscribe {
+    max-width: 1070px;
+    &__inner {
+      max-width: 900px;
+    }
+    &__text {
+      max-width: 380px;
+    }
+    &__search-inner {
+      max-width: 420px;
+      min-height: 145px;
+      input[type="email"] {
+        width: 350px;
+        height: 42px;
+      }
+      .btn-act {
+        padding: 11px 15px;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  /*===Footer===*/
+
+  .footer {
+    &__inner {
+      max-width: 1100px;
+    }
+    &__social {
+      max-width: 290px;
+      &-icons {
+        margin-top: 100px;
+      }
+    }
+    .openhours {
+      &__secondaryList {
+        margin: 0 0 15px 30px;
+      }
+    }
+    &__contact {
+      &-phone,
+      &-address,
+      &-mail {
+        margin: 0 0 23px 30px;
+      }
+    }
+    &__instagram {
+      max-width: 200px;
+      .instagram__inner {
+        &-img {
+          max-width: 83px;
+          max-height: 83px;
+          margin: 0 0 10px 10px;
+        }
       }
     }
   }
@@ -499,6 +598,9 @@
     &__info {
       margin-top: 15px;
       max-width: 600px;
+      &-link {
+        margin: auto 10px 10px 0;
+      }
     }
     &__item {
       max-width: 850px;
@@ -510,11 +612,79 @@
         width: 330px;
         height: 250px;
       }
-      .item-readmore {
-        width: 300px;
-        bottom: 15px;
-        right: 0;
+    }
+  }
+
+  /*===Subscribe===*/
+  .subscribe {
+    max-width: 880px;
+
+    &__text {
+      max-width: 280px;
+    }
+    &__search-inner {
+      max-width: 400px;
+      min-height: 145px;
+      input[type="email"] {
+        width: 350px;
+        height: 42px;
       }
+      .btn-act {
+        padding: 11px 15px;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  /*===Subscribe===*/
+  .subscribe {
+    max-width: 880px;
+    &__inner {
+      max-width: 740px;
+    }
+    &__text {
+      max-width: 220px;
+    }
+    &__search-inner {
+      max-width: 370px;
+      min-height: 145px;
+      input[type="email"] {
+        width: 370px;
+        height: 42px;
+      }
+      .btn-act {
+        padding: 11px 15px;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  /*===Footer===*/
+
+  .footer {
+    &__inner {
+      max-width: 880px;
+    }
+    &__social {
+      order: 1;
+      margin: 0 150px 30px 0;
+      &-text {
+        margin-top: -10px;
+      }
+      &-icons {
+        margin-top: 5px;
+      }
+    }
+    .openhours {
+      order: 3;
+    }
+    &__contact {
+      order: 4;
+      margin-right: 45px;
+    }
+    &__instagram {
+      order: 2;
+      max-width: 280px;
     }
   }
 }
@@ -837,33 +1007,78 @@
       max-width: 650px;
     }
     &__info {
-      margin-top: 5px;
+      margin-top: 0;
       max-width: 600px;
-      height: 50px;
     }
     &__item {
-      max-width: 620px;
-      max-height: 200px;
+      flex-direction: column;
+      max-width: 240px;
+      max-height: 700px;
       &-title {
         margin: 10px 0;
       }
       &-text {
-        max-height: 55px;
-        margin-bottom: 0;
+        margin-bottom: 15px;
         overflow: hidden;
       }
       &-img {
-        width: 220px;
+        width: 240px;
         height: 200px;
       }
       &-imgwrapper {
-        width: 350px;
-        height: 250px;
+        width: 240px;
+        height: 200px;
       }
-      .item-readmore {
-        width: 300px;
-        bottom: 5px;
-        right: 0;
+    }
+  }
+
+  /*===Subscribe===*/
+  .subscribe {
+    max-width: 650px;
+    min-height: 250px;
+    &__inner {
+      min-height: 250px;
+      max-width: 550px;
+    }
+    &__text {
+      min-height: 100%;
+      max-width: 250px;
+    }
+    &__search-inner {
+      max-width: 270px;
+      input[type="email"] {
+        width: 270px;
+        height: 32px;
+      }
+      .btn-act {
+        padding: 8px 12px;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  /*===Footer===*/
+
+  .footer {
+    &__inner {
+      max-width: 650px;
+      padding-bottom: 20px;
+    }
+    &__social {
+      margin: 0 50px 30px 0;
+      &-text {
+        margin-top: -5px;
+      }
+      &-icons {
+        margin-top: 10px;
+      }
+    }
+    &__contact {
+      margin-right: 40px;
+      &-phone,
+      &-address,
+      &-mail {
+        margin: 0 0 15px 30px;
       }
     }
   }
@@ -1269,6 +1484,174 @@
       height: 60px;
     }
   }
+
+  /*===Blog===*/
+  .blog {
+    &::before {
+      content: url(../images/btwsection.png);
+      height: 20px;
+      top: -74px;
+      right: 0;
+      position: absolute;
+      z-index: 10;
+    }
+
+    &__info {
+      padding: 10px;
+      &-link {
+        margin: 10px 20px 0px 0;
+      }
+    }
+  }
+
+  /*===Subscribe===*/
+  .subscribe {
+    max-width: 350px;
+    min-height: 220px;
+    &::before {
+      height: 50px;
+      top: -50px;
+    }
+    &__inner {
+      padding-top: 7px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100px;
+      max-width: 300px;
+    }
+    &__text {
+      max-width: 320px;
+      margin-bottom: 20px;
+    }
+    &__search-inner {
+      max-width: 300px;
+      min-height: 50px;
+      input[type="email"] {
+        width: 180px;
+        height: 29px;
+      }
+    }
+  }
+
+  /*===Footer===*/
+  .footer__block-title {
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    &__inner {
+      max-width: 350px;
+      margin-top: 190px;
+      padding: 0 0px 20px;
+    }
+    &__social {
+      max-width: 180px;
+      margin: 0 0px 10px 0;
+
+      &-text {
+        margin-top: 0px;
+      }
+      &-icons {
+        margin-top: 0px;
+        justify-content: space-around;
+        .social-icon {
+          width: 25px;
+          height: 25px;
+          &__fk {
+            svg {
+              width: 8px;
+              height: 16px;
+            }
+          }
+          &__tw {
+            svg {
+              width: 15px;
+              height: 14px;
+            }
+          }
+          &__inst {
+            svg {
+              width: 15px;
+              height: 15px;
+            }
+          }
+          &__in {
+            svg {
+              width: 15px;
+              height: 12px;
+            }
+          }
+        }
+      }
+    }
+    .openhours {
+      order: 4;
+      max-width: 120px;
+      &__mainList {
+        line-height: 1.6;
+        max-width: 60px;
+      }
+      &__secondaryList {
+        margin: 0 0 5px 25px;
+
+        justify-content: space-between;
+        flex-wrap: wrap;
+        &-day {
+          &::before {
+            left: -25px;
+            top: 10px;
+
+            position: absolute;
+          }
+        }
+        &-dash {
+          display: none;
+        }
+      }
+    }
+    &__contact {
+      order: 3;
+      max-width: 140px;
+      margin-right: 0px;
+      &-phone,
+      &-address,
+      &-mail {
+        margin: 0 0 20px 20px;
+      }
+      &-phone {
+        &::before {
+          left: -25px;
+          top: 2px;
+        }
+      }
+      &-address {
+        &::before {
+          left: -20px;
+          top: 25px;
+        }
+      }
+      &-mail {
+        &::before {
+          left: -25px;
+        }
+      }
+    }
+    &__instagram {
+      max-width: 130px;
+      .instagram__inner {
+        &-img {
+          max-width: 53px;
+          max-height: 53px;
+          img {
+            max-width: 53px;
+            max-height: 53px;
+          }
+        }
+      }
+    }
+  }
 }
 @media (max-width: 375px) {
   .header {
@@ -1403,10 +1786,50 @@
       }
     }
   }
-
+  /*===Cooks===*/
   .cooks {
     &__item {
       max-width: 200px;
+    }
+  }
+
+  /*===Subscribe===*/
+  .subscribe {
+    max-width: 280px;
+    &::before {
+      top: -45px;
+    }
+    &__inner {
+      max-width: 250px;
+      min-height: 100px;
+    }
+    &__text {
+      max-width: 220px;
+      margin-bottom: 20px;
+    }
+    &__search-inner {
+      max-width: 220px;
+      min-height: 50px;
+      input[type="email"] {
+        width: 180px;
+      }
+      .btn-act.btn-sub {
+        margin: 0 0 0 10px;
+      }
+    }
+  }
+
+  /*===Footer===*/
+  .footer {
+    &__inner {
+      max-width: 320px;
+    }
+    &__contact{
+      &-phone,
+      &-address,
+      &-mail {
+        margin: 0 0 18px 20px;
+      }
     }
   }
 }
@@ -1432,7 +1855,7 @@
     max-width: 320px;
     max-height: 50px;
     justify-content: space-around;
-    
+
     &__logo {
       margin: 5px 0;
     }
@@ -1608,6 +2031,65 @@
     }
     textarea {
       height: 60px;
+    }
+  }
+
+  /*===Subscribe===*/
+  .subscribe {
+    max-width: 250px;
+    min-height: 180px;
+    &::before {
+      top: -45px;
+    }
+    &__inner {
+      padding: 0;
+      max-width: 250px;
+    }
+    &__text {
+      margin-bottom: 5px;
+    }
+    &__search-inner {
+      max-width: 200px;
+      input[type="email"] {
+        width: 120px;
+      }
+      .btn-act.btn-sub {
+        margin: 0 0 0 10px;
+      }
+    }
+  }
+
+  /*===Footer===*/
+  .footer {
+    &__inner {
+      max-width: 295px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+    }
+    &__social {
+      max-width: 150px;
+      min-height: 100%;
+      margin: 0 0px 30px 0;
+
+      &-text {
+        margin-top: -2px;
+        line-height: 1.2;
+      }
+      &-icons {
+        margin-top: 10px;
+      }
+    }
+    &__contact {
+      margin-right: 0px;
+      &-phone,
+      &-address,
+      &-mail {
+        margin: 0 0 15px 25px;
+      }
+    }
+    .copyright {
+      max-width: 200px;
+      margin-bottom: 10px;
     }
   }
 }
