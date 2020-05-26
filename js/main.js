@@ -46,6 +46,45 @@ var mixer = mixitup(containerEl, {
 });
 
 //Counter - счетчик
+$(function () {
+  var oTop = $(".counter").offset().top - window.innerHeight;
+  $(window).scroll(function () {
+    $(window).scroll(function () {
+      scrollTracking();
+    });
+
+    $(document).ready(function () {
+      scrollTracking();
+    });
+    $(".counter__item-number").each(function () {
+      var $this = $(this),
+        countTo = $this.attr("data-count");
+      $({ countNum: $this.text() }).animate(
+        {
+          countNum: countTo,
+        },
+
+        {
+          duration: 2000,
+          easing: "linear",
+          step: function () {
+            $this.text(Math.floor(this.countNum));
+          },
+          complete: function () {
+            $this.text(this.countNum);
+            //alert('finished');
+          },
+        }
+      );
+    });
+    //var pTop = $('body').scrollTop();
+    var pTop = $("html, body").scrollTop();
+    console.log(pTop + " - " + oTop);
+    if (pTop > oTop) {
+      start_count();
+    }
+  });
+});
 
 // Плавный скролл по навигации
 $(document).ready(function () {
@@ -88,12 +127,12 @@ $(".menu-btn").click(function () {
 });
 
 if ($(document).width() < 450)
-$(".nav-menu li a, .nav-menu__reservation-btn").click(function () {
-  $("#menu").animate({
-    height: "toggle",
+  $(".nav-menu li a, .nav-menu__reservation-btn").click(function () {
+    $("#menu").animate({
+      height: "toggle",
+    });
+    $(".menu-btn").removeClass("active");
   });
-  $(".menu-btn").removeClass("active");
-});
 
 //закрытие меню при нажатии на область вне меню
 if ($(document).width() < 450)
@@ -126,10 +165,19 @@ $(".menu-btn").on("click", function () {
   return false;
 }); */
 
-$(document).on('click', '.blog__info-link', function() {
-  $(this).closest('.blog__info').find('.blog__item-text').slideToggle('slow', function() {
-    $(this).toggleClass('open');						
-  });
+$(document).on("click", ".blog__info-link", function () {
+  $(this)
+    .closest(".blog__info")
+    .find(".blog__item-text")
+    .slideToggle("slow", function () {
+      $(this).toggleClass("open");
+    });
 });
 
 
+//Preloader
+$(window).on('load', function() { // makes sure the whole site is loaded 
+  $('#status').fadeOut(); // will first fade out the loading animation 
+  $('#preloader').delay(800).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+  $('body').delay(800).css({'overflow':'visible'});
+})
