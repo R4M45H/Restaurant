@@ -870,6 +870,9 @@
       @extend %poppins-400;
       @include responsive-font(36, 24);
       line-height: 1.25;
+      
+      animation-duration: 1s;
+      animation-delay: 0s;
       position: relative;
       /*   &::after {
         content: " + ";

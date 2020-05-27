@@ -45,7 +45,7 @@ var mixer = mixitup(containerEl, {
   },
 });
 
-//Counter - счетчик
+//Counter
 $(function () {
   var oTop = $(".counter").offset().top - window.innerHeight;
   $(window).scroll(function () {
@@ -86,7 +86,7 @@ $(function () {
   });
 });
 
-// Плавный скролл по навигации
+// Smooth scroll naivgation
 $(document).ready(function () {
   $("#menu, #reserv-btn").on("click", "a", function (event) {
     //отменяем стандартную обработку нажатия по ссылке
@@ -102,7 +102,7 @@ $(document).ready(function () {
   });
 });
 
-//Возврат в начало сайта
+//Come back to top of page
 $(window).scroll(function () {
   if ($(this).scrollTop() > 700) {
     $(".scrollup").fadeIn();
@@ -134,7 +134,8 @@ if ($(document).width() < 450)
     $(".menu-btn").removeClass("active");
   });
 
-//закрытие меню при нажатии на область вне меню
+//Closed menu after clicking outside the menu area
+
 if ($(document).width() < 450)
   $(document).mouseup(function (e) {
     if (!$(e.target).closest(".header__wrapper").length) {
@@ -180,4 +181,20 @@ $(window).on('load', function() { // makes sure the whole site is loaded
   $('#status').fadeOut(); // will first fade out the loading animation 
   $('#preloader').delay(800).fadeOut('slow'); // will fade out the white DIV that covers the website. 
   $('body').delay(800).css({'overflow':'visible'});
-})
+});
+
+
+  //Hide and show menu on smartphone
+  var header = $('.header__wrapper'),
+	scrollPrev = 0;
+
+  $(window).scroll(function() {
+    var scrolled = $(window).scrollTop();
+  
+    if ( scrolled > 100 && scrolled > scrollPrev ) {
+      header.addClass('out');
+    } else {
+      header.removeClass('out');
+    }
+    scrollPrev = scrolled;
+  });
